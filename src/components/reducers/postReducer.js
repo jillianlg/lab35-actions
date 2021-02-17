@@ -1,13 +1,13 @@
 export const initialState = {
-  blogs: []
+  posts: []
 };
 
 export default function reducer(state, action) {
   switch(action.type) {
-    case 'CREATE_BLOG':
+    case 'CREATE_POST':
       return {
         ...state,
-        blogs: [...state.blogs, action.payload]
+        posts: [...state.posts, action.payload]
       };
     default:
       return state;
