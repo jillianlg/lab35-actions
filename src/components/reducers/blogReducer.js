@@ -3,5 +3,8 @@ export const initialState = {
 };
 
 export default function reducer(state, action) {
-  return state;
+  switch(action, type) {
+
+  }
+  // return state;
 }
