@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import App from './components/app/App';
-import { PostProvider } from './components/state/PostProvider';
+import { PostProvider } from './state/PostProvider';
 
 render(
   <PostProvider>
