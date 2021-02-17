@@ -3,8 +3,13 @@ export const initialState = {
 };
 
 export default function reducer(state, action) {
-  switch(action, type) {
-
+  switch(action.type) {
+    case 'CREATE_BLOG':
+      return {
+        ...state,
+        blogs: [...state.blogs, action.payload]
+      };
+    default:
+      return state;
   }
-  // return state;
 }
