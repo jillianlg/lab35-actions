@@ -1,4 +1,4 @@
-import { CREATE_POST } from '../actions/postActions';
+import { createPost } from '../actions/postActions';
 import reducer from './postReducer';
 
 describe('post reducer', () => {
@@ -7,10 +7,9 @@ describe('post reducer', () => {
       posts: []
     };
 
-    const action = {
-      type: CREATE_POST,
-      payload: { title: 'post title', body: 'post post text area' }
-    };
+    const action = createPost({ 
+      title: 'post title', 
+      body: 'post post text area' });
 
     const newState = reducer(state, action);
 
