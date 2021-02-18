@@ -9,12 +9,12 @@ describe('post reducer', () => {
 
     const action = createPost({ 
       title: 'post title', 
-      body: 'post post text area' });
+      body: 'post text area' });
 
     const newState = reducer(state, action);
 
     expect(newState).toEqual({
-      posts: [{ title: 'post title', body: 'post post text area' }]
+      posts: [{ title: 'post title', body: 'post text area' }]
     });
   });
 });
