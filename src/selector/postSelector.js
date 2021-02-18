@@ -1,1 +1,3 @@
-export const getPosts = () => {};
+export const getPosts = (state) => {
+  return state.post;
+};

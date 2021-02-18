@@ -8,6 +8,6 @@ describe('post selector', () => {
 
     const posts = getPosts(state);
 
-    expect(posts).toEqual([{ title: 'post title', body: 'post text body' }])
+    expect(posts).toEqual([{ title: 'post title', body: 'post text body' }]);
   });
 });
