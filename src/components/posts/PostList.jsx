@@ -1,9 +1,13 @@
+import { getPosts } from '../../selector/postSelector';
+import { useSelector } from '../../state/PostProvider';
 import Post from './Post';
 
 const PostList = () => {
+  const posts = useSelector(getPosts);
+
   const postElements = posts.map(post => (
     <li key={post.title}>
-      <Post />
+      <Post {...post} />
     </li>
   ));
 
