@@ -3,7 +3,7 @@ import { countPosts, getPosts } from './postSelector';
 describe('post selector', () => {
   it('selects the list of posts from state', () => {
     const state = {
-      post: [{ title: 'post title', body: 'post text body' }]
+      posts: [{ title: 'post title', body: 'post text body' }]
     };
 
     const posts = getPosts(state);
@@ -13,7 +13,7 @@ describe('post selector', () => {
 
   it('selects the number of posts from state', () => {
     const state = {
-      post: [{ title: 'post title', body: 'post text body' }]
+      posts: [{ title: 'post title', body: 'post text body' }]
     };
 
     expect(countPosts(state)).toEqual(1);

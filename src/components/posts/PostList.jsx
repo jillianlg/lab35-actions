@@ -1,3 +1,4 @@
+import React from 'react';
 import { getPosts } from '../../selector/postSelector';
 import { useSelector } from '../../state/PostProvider';
 import Post from './Post';

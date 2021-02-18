@@ -1,4 +1,4 @@
-import { createPost } from '../actions/postActions';
+import { createPost, deletePost } from '../actions/postActions';
 import reducer from './postReducer';
 
 describe('post reducer', () => {
@@ -15,6 +15,18 @@ describe('post reducer', () => {
 
     expect(newState).toEqual({
       posts: [{ title: 'post title', body: 'post text area' }]
+    });
+  });
+
+  it('removes a post with DELETE_POST action', () => {
+    const state = {
+      posts: [{ title: 'post title', body: 'post text area' }]
+    };
+
+    const action = deletePost();
+
+    expect(reducer(state, action)).toEqual({
+      posts: []
     });
   });
 });
