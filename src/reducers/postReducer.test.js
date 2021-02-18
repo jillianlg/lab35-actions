@@ -23,7 +23,7 @@ describe('post reducer', () => {
       posts: [{ title: 'post title', body: 'post text area' }]
     };
 
-    const action = deletePost();
+    const action = deletePost('post title');
 
     expect(reducer(state, action)).toEqual({
       posts: []
