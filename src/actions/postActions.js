@@ -1,12 +1,12 @@
 export const CREATE_POST = 'CREATE_POST';
 export const DELETE_POST = 'DELETE_POST';
 
-export const createPost = post => ({
+export const createPost = (post) => ({
   type: CREATE_POST,
-  payload: post
+  payload: post 
 });
 
-export const deletePost = title => ({
+export const deletePost = ({ title, postIndex }) => ({
   type: DELETE_POST,
-  payload: title
+  payload: { title, postIndex }
 });

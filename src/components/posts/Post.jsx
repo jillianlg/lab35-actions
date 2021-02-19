@@ -6,12 +6,12 @@ import { deleteComment } from '../../actions/commentActions';
 import CommentForm from '../form/CommentForm';
 import CommentList from '../comments/CommentList';
 
-const Post = ({ title, body, postIndex, commentIndex }) => {
+const Post = ({ title, body, postIndex, comments }) => {
   const dispatch = useDispatch();
 
   const handleClick = () => {
     dispatch(deletePost(title));
-    dispatch(deleteComment(postIndex, commentIndex));
+    dispatch(deleteComment(postIndex));
   };
 
   return (
@@ -20,22 +20,18 @@ const Post = ({ title, body, postIndex, commentIndex }) => {
       <p>{body}</p>
 
       <CommentForm postIndex={postIndex} />
-      <CommentList commentIndex={commentIndex} />
+      <CommentList comments={comments}/>
 
-      <button onClick={handleClick}>Delete</button>
+      <button onClick={handleClick}>Delete Post</button>
     </div>
   );
 };
 
 Post.propTypes = {
-  postIndex: PropTypes.string.isRequired,
+  postIndex: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
-  commentIndex: PropTypes.string.isRequired,
-  comments: PropTypes.arrayOf(PropTypes.shape({
-    commentIndex: PropTypes.string.isRequired,
-    comment: PropTypes.string.isRequired
-  }))
+  comments: PropTypes.arrayOf(PropTypes.string.isRequired)
 };
 
 export default Post;

@@ -15,19 +15,9 @@ export default function reducer(state = {}, action) {
       return {
         ...state,
         [action.payload.postIndex]: [
-          ...state[action.payload.postIndex]
-            .slice(0, action.payload.commentIndex),
-          ...state[action.payload.postIndex]
-            .slice(action.payload.commentIndex + 1)
-        ]
-        // [action.payload.postIndex]: [
-        //   ...(state[action.payload.postIndex])
-        //     .slice(0, action.payload.postIndex),
-        //   action.payload.comment,
-        //   ...(state[action.payload.postIndex])
-        //     .slice(action.payload.postIndex + 1)
-        // ]
-    
+          ...(state[action.payload.postIndex]
+            .filter(comment => comment !== action.payload.comment))
+        ]    
       };
     default:
       return state;

@@ -7,14 +7,15 @@ import { getComment } from '../../selector/commentSelector';
 const PostList = () => {
   const posts = useSelector(getPosts);
   const allComments = useSelector(getComment);
+  console.log(posts);
 
-  const postElements = posts.map(post => {
-    const comments = allComments
-      .filter(comment => comment.commentIndex === post.postIndex);
-
+  const postElements = posts.map((post, postIndex) => {
+    const comments = allComments[postIndex] || [] ;
+      
+    
     return (
-      <li key={post.postIndex}>
-        <Post {...post} comments={comments}/>
+      <li key={postIndex}>
+        <Post {...post} postIndex={postIndex} comments={comments} />    
       </li>
     );
   });

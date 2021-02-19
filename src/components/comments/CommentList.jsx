@@ -10,7 +10,7 @@ export default function CommentList({ comments }) {
         comments.map((comment, postIndex) => {
           return (
             <li key={postIndex}>
-              <Comment {...comment}/>
+              <Comment postIndex={postIndex} comment={comment}/>
             </li>
           );
         })
@@ -20,7 +20,5 @@ export default function CommentList({ comments }) {
 }
 
 CommentList.propTypes = {
-  comments: PropTypes.arrayOf(PropTypes.shape({
-    comment: PropTypes.string.isRequired
-  }))
+  comments: PropTypes.arrayOf(PropTypes.string.isRequired)
 };

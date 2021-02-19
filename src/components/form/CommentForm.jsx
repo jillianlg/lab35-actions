@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { createComment } from '../../actions/commentActions';
 import { useDispatch } from 'react-redux';
 
-export default function CommentForm({ commentIndex }) {
+export default function CommentForm({ commentIndex, postIndex }) {
   const dispatch = useDispatch();
 
   const [comment, setComment] = useState('');
@@ -11,7 +11,7 @@ export default function CommentForm({ commentIndex }) {
   const submitForm = e => {
     e.preventDefault();
 
-    dispatch(createComment({ commentIndex, comment }));
+    dispatch(createComment({ comment, postIndex }));
   };
 
   const updateComment = ({ target }) => {
@@ -35,6 +35,3 @@ export default function CommentForm({ commentIndex }) {
   );
 }
 
-CommentForm.propTypes = {
-  commentIndex: PropTypes.string.isRequired
-};
