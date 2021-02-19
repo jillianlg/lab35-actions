@@ -1,7 +1,7 @@
 import { getComment } from './commentSelector';
 
 describe('comment selector', () => {
-  it.only('it selects the comment and associated post from state', () => {
+  it('it selects the comment and associated post from state', () => {
     const state = {
       posts: [{
         title: 'post title', 
