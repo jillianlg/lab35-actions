@@ -3,20 +3,12 @@ import { getComment } from './commentSelector';
 describe('comment selector', () => {
   it('it selects the comment and associated post from state', () => {
     const state = {
-      posts: [{
-        title: 'post title', 
-        body: 'post text area',
-      }],
-      0: ['comment 1']
+      comments: { 0: ['comment 1'] }
     };
 
     const comments = getComment(state);
 
     expect(comments).toEqual({ 
-      // posts: [{
-      //   title: 'post title', 
-      //   body: 'post text area',
-      // }],
       0: ['comment 1']
     });
   });

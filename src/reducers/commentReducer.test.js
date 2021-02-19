@@ -39,7 +39,11 @@ describe('comment reducer', () => {
     const action = deleteComment(0, 0);
 
     expect(reducer(state, action)).toEqual({
-      // comments: []
+      posts: [{
+        title: 'post title', 
+        body: 'post text area',
+      }],
+      0: [] 
     });
   });
 });
