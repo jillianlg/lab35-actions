@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { createPost } from '../../actions/postActions';
-import { useDispatch } from '../../state/PostProvider';
+import { useDispatch } from 'react-redux';
 
 const PostForm = () => {
   const dispatch = useDispatch();
 
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
-
+  
   const handleSubmit = event => {
     event.preventDefault();
 
