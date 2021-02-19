@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import { CREATE_COMMENT, DELETE_ALL_COMMENTS, DELETE_COMMENT } from '../actions/commentActions';
 
 export default function reducer(state = {}, action) {

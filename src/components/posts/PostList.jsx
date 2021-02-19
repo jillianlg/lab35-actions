@@ -7,7 +7,6 @@ import { getComment } from '../../selector/commentSelector';
 const PostList = () => {
   const posts = useSelector(getPosts);
   const allComments = useSelector(getComment);
-  console.log(posts);
 
   const postElements = posts.map((post, postIndex) => {
     const comments = allComments[postIndex] || [] ;
