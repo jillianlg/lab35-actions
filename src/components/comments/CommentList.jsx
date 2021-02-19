@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import Comment from './Comment';
 
 
-export default function CommentList({ comments }) {
+export default function CommentList({ comments, postIndex }) {
   return (
     <ul>
       {
-        comments.map((comment, postIndex) => {
+        comments.map((comment, commentIndex) => {
           return (
-            <li key={postIndex}>
+            <li key={commentIndex}>
               <Comment postIndex={postIndex} comment={comment}/>
             </li>
           );
@@ -20,5 +20,6 @@ export default function CommentList({ comments }) {
 }
 
 CommentList.propTypes = {
-  comments: PropTypes.arrayOf(PropTypes.string.isRequired)
+  comments: PropTypes.arrayOf(PropTypes.string.isRequired),
+  postIndex: PropTypes.number.isRequired
 };

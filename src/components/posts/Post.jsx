@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { deletePost } from '../../actions/postActions';
-import { deleteComment } from '../../actions/commentActions';
+import { deleteAllComments } from '../../actions/commentActions';
 import CommentForm from '../form/CommentForm';
 import CommentList from '../comments/CommentList';
 
@@ -10,8 +10,8 @@ const Post = ({ title, body, postIndex, comments }) => {
   const dispatch = useDispatch();
 
   const handleClick = () => {
-    dispatch(deletePost(title));
-    dispatch(deleteComment(postIndex));
+    dispatch(deletePost(postIndex));
+    dispatch(deleteAllComments(postIndex));
   };
 
   return (
@@ -20,7 +20,7 @@ const Post = ({ title, body, postIndex, comments }) => {
       <p>{body}</p>
 
       <CommentForm postIndex={postIndex} />
-      <CommentList comments={comments}/>
+      <CommentList postIndex={postIndex} comments={comments}/>
 
       <button onClick={handleClick}>Delete Post</button>
     </div>
