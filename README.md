@@ -1,4 +1,4 @@
-# lab35-actions
+# lab35-actions & lab36-redux
 
 Create all the state management for a blog. All state should be stored
 locally only. Here is an example: https://demo.alchemycodelab.io/redux-blog/
@@ -19,13 +19,15 @@ locally only. Here is an example: https://demo.alchemycodelab.io/redux-blog/
   * handle delete a post
   * BONUS: handle update a post by index
 
-## Rubric
+Refactor your blog to use redux:
+## Blog Combine Reducers
 
-* 3 points for actions
-  * 1.5 point for each action
-* 4 points for reducers
-  * 1 points for each case
-  * 1 point for each test
-* 3 points for selectors
-  * 2 point for each selector
-  * 1 points for each test
+* create `src/actions/commentActions.js`
+  * create an action to create a comment for a post (by post index)
+  * create an action to delete a comment for a post (by post index and comment index)
+* create `src/reducers/commentReducer.js`
+  * store comments for each post (create an object where the key is a posts index)
+    and the value is an array of comments
+  * handle create a comment
+  * handle delete a comment
+  * delete post should also delete all comments
