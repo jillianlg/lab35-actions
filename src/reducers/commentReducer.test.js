@@ -1,4 +1,4 @@
-import { createCOMMENT, deleteCOMMENT } from '../actions/commentActions';
+import { createComment, deleteComment } from '../actions/commentActions';
 import reducer from './commentReducer';
 
 
@@ -8,34 +8,38 @@ describe('comment reducer', () => {
       post: [{
         title: 'post title', 
         body: 'post text area',
-        comments: []
-      }],
+      }]
     };
 
-    const action = createCOMMENT({
-      body: 'comment 1'
+    const action = createComment({
+      postIndex: 0,
+      comment: 'comment 1'
     });
 
     const newState = reducer(state, action);
 
     expect(newState).toEqual({
-      comments: [{ body: 'comment 1' }]
+      post: [{
+        title: 'post title', 
+        body: 'post text area',
+      }],
+      0: ['comment 1']
     });
   });
 
   it('removes a comment with DELETE_POST action', () => {
     const state = {
-      post: [{
+      posts: [{
         title: 'post title', 
         body: 'post text area',
-        comments: ['comment 1']
       }],
+      0: ['comment 1']
     };
 
-    const action = deleteCOMMENT(0, 'comment 1');
+    const action = deleteComment(0, 0);
 
     expect(reducer(state, action)).toEqual({
-      comments: []
+      // comments: []
     });
   });
 });
